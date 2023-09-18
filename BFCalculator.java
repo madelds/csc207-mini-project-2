@@ -4,6 +4,8 @@ import java.math.BigInteger;
 /**
  * A calculator that performs operations with fractions and stores 
  * results in registers.
+ * @author Madel Sibal
+ * September 17, 2023
  */
 public class BFCalculator {
     private BigFraction lastResult; // Stores the last calculated result

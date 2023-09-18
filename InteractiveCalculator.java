@@ -3,6 +3,8 @@ import java.util.Scanner;
 /**
  * A simple interactive calculator program that allows users to perform
  * fractional arithmetic operations and store results in registers.
+ * @author Madel Sibal
+ * September 17, 2023
  */
 public class InteractiveCalculator {
     public static void main(String[] args) {

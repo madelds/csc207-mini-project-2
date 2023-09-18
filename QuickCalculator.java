@@ -1,6 +1,9 @@
 /**
  * A simple command-line calculator program for evaluating mathematical expressions
  * and storing variables using the BFCalculator.
+ * 
+ * @author Madel Sibal
+ * September 17, 2023
  */
 public class QuickCalculator {
     public static void main(String[] args) {
