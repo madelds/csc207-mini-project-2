@@ -55,9 +55,6 @@ public class InteractiveCalculator {
     /**
      * Helper method to check if an expression is valid, ensuring there are no
      * consecutive numbers or operators.
-     *
-     * @param input The input expression to validate.
-     * @return True if the expression is valid, false otherwise.
      */
     private static boolean isValidExpression(String input) {
         // Split the expression into tokens
@@ -66,7 +63,6 @@ public class InteractiveCalculator {
             String currentToken = tokens[i];
             String nextToken = tokens[i + 1];
             
-            // Check if consecutive tokens are both numbers or both operators
             if ((isNumber(currentToken) && isNumber(nextToken)) || 
                 (isOperator(currentToken) && isOperator(nextToken))) {
                 return false;
@@ -77,9 +73,6 @@ public class InteractiveCalculator {
     
     /**
      * Helper method to check if a string represents a number.
-     *
-     * @param str The string to check.
-     * @return True if the string is a number, false otherwise.
      */
     private static boolean isNumber(String str) {
         return str.matches("-?\\d+(/\\d+)?");
@@ -87,9 +80,6 @@ public class InteractiveCalculator {
     
     /**
      * Helper method to check if a string represents an operator (+, -, *, /).
-     *
-     * @param str The string to check.
-     * @return True if the string is an operator, false otherwise.
      */
     private static boolean isOperator(String str) {
         return str.matches("[+\\-*/]");
