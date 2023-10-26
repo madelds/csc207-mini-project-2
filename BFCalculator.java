@@ -77,7 +77,6 @@ public class BFCalculator {
             return parseAdditionSubtraction();
         }
 
-
         /**
          * Tokenizes the given expression string by splitting it into an array of strings
          * based on whitespace characters.
@@ -132,6 +131,7 @@ public class BFCalculator {
             }
             return left;
         }
+        
         /**
          * Parses an operand within the expression.
          */
@@ -163,5 +163,4 @@ public class BFCalculator {
             }
         }
     }
-
 }
