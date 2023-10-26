@@ -37,7 +37,6 @@ public class InteractiveCalculator {
                         if (!isValidExpression(input)) {
                             throw new IllegalArgumentException("Invalid expression format");
                         }
-                        
                         BigFraction result = calculator.evaluate(input);
                         System.out.println("Result: " + result);
                     }
@@ -48,7 +47,6 @@ public class InteractiveCalculator {
                 }
             }
         }
-
         scanner.close();
     }
     
