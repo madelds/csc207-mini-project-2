@@ -22,15 +22,10 @@ public class BFCalculator {
 
     /**
      * Evaluates a given expression or retrieves a value from a register.
-     *
-     * @param exp The expression or variable to evaluate.
-     * @return The result of the evaluation.
-     * @throws IllegalArgumentException If the expression or variable is invalid.
      */
     public BigFraction evaluate(String exp) {
         try {
             if (exp.matches("[a-zA-Z]+")) {
-              // If the expression is a single variable, look it up in registers
                 char variable = exp.charAt(0);
                 BigFraction result = registers.get(variable);
                 if (result == null) {
@@ -39,7 +34,6 @@ public class BFCalculator {
                 lastResult = result;
                 return result;
             } else {
-              // Parse and evaluate the expression using ExpressionParser
                 ExpressionParser parser = new ExpressionParser(exp);
                 BigFraction result = parser.parse();
                 lastResult = result;
@@ -52,9 +46,6 @@ public class BFCalculator {
 
     /**
      * Stores the last calculated result in a register.
-     *
-     * @param arg A string containing the register name (e.g., "A").
-     * @throws IllegalStateException If there is no result to store.
      */
     public void store(String arg) {
         if (lastResult == null) {
@@ -68,23 +59,19 @@ public class BFCalculator {
      * A private class for parsing and evaluating mathematical expressions.
      */
     private class ExpressionParser {
-        private String[] tokens; // Tokens obtained by splitting the expression
-        private int currentTokenIndex; // Index of the current token being processed
+        private String[] tokens;
+        private int currentTokenIndex;
 
         /**
          * Constructs an ExpressionParser with the given expression.
-         *
-         * @param exp The mathematical expression to parse.
          */
         public ExpressionParser(String exp) {
-            tokens = tokenize(exp); // Tokenize the input expression
-            currentTokenIndex = 0; // Initialize the current token index
+            tokens = tokenize(exp); 
+            currentTokenIndex = 0; 
         }
 
         /**
          * Parses and evaluates the expression.
-         *
-         * @return The result of the expression evaluation.
          */
         public BigFraction parse() {
             return parseAdditionSubtraction();
@@ -94,9 +81,6 @@ public class BFCalculator {
         /**
          * Tokenizes the given expression string by splitting it into an array of strings
          * based on whitespace characters.
-         *
-         * @param exp The mathematical expression to tokenize.
-         * @return An array of strings representing individual tokens from the expression.
          */
         private String[] tokenize(String exp) {
             return exp.split("\\s+"); // Split the expression
@@ -104,8 +88,6 @@ public class BFCalculator {
 
         /**
          * Parses addition and subtraction operations within the expression.
-         *
-         * @return The result of addition and subtraction operations.
          */
         private BigFraction parseAdditionSubtraction() {
             BigFraction left = parseMultiplicationDivision();
@@ -128,9 +110,6 @@ public class BFCalculator {
 
         /**
          * Parses multiplication and division operations within the expression.
-         *
-         * @return The result of multiplication and division operations.
-         * @throws ArithmeticException If division by zero is encountered.
          */
         private BigFraction parseMultiplicationDivision() {
             BigFraction left = parseOperand();
@@ -155,9 +134,6 @@ public class BFCalculator {
         }
         /**
          * Parses an operand within the expression.
-         *
-         * @return The parsed operand as a BigFraction.
-         * @throws IllegalArgumentException If an invalid operand is encountered.
          */
         private BigFraction parseOperand() {
             String token = tokens[currentTokenIndex];
